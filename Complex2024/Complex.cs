@@ -78,6 +78,31 @@ namespace Complex2024
             Re = Re * other.Re - other.Im * Im;
             Im = Im * other.Re + other.Im * l;*/
         }
+
+        public static Complex operator /(Complex a, Complex b)
+        {
+            if (b==0)
+            {
+                throw new Exception("Попытка деления на 0");
+            }
+            double denominator = b.Re * b.Re + b.Im * b.Im;
+            var re = (a.Re * b.Re + a.Im * b.Im) / denominator;
+            var im = (a.Im * b.Re - a.Re * b.Im) / denominator;
+
+            return new(re, im);
+        }
+        public static bool operator ==(Complex a, Complex b)
+        {
+            if(a is null || b is null) return false;
+            return (Math.Abs(a.Re - b.Re) < 1e-10 && Math.Abs(a.Im - b.Im) < 1e-10);
+        }
+        public static bool operator !=(Complex a, Complex b) => !(a == b);
+        public static implicit operator Complex(double v) => new(v, 0);
+        
+        public static Complex operator -(Complex a) => new(-a.Re, -a.Im);
+        public static Complex operator +(Complex a) => new(a.Re, a.Im);
+        public static bool operator true (Complex a) => a != 0;
+        public static bool operator false(Complex a) => a == 0;
     }
 
 }

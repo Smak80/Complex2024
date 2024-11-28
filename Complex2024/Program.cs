@@ -25,3 +25,20 @@ Console.WriteLine(z4.Quotient(z5));
 Console.WriteLine(z4.Product(z5));
 z4.ProductAssign(z5);
 Console.WriteLine(z4);
+
+Complex z10 = new (1, 2);
+Complex z11 = new ();
+try
+{
+    Complex z12 = z10 / z11;
+    Console.WriteLine(z12);
+} catch (Exception e)
+{
+    Console.WriteLine(e.Message);
+}
+Console.WriteLine(z11 / z10);
+Complex z13 = 4;
+if (z13)
+{
+    Console.WriteLine(z13);
+}
