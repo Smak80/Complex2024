@@ -8,8 +8,8 @@ namespace Complex2024
 {
     public class Complex
     {
-        public double Re { get; set; }
-        public double Im { get; set; }
+        public virtual double Re { get; set; }
+        public virtual double Im { get; set; }
         public double AbsoluteValue => Math.Sqrt(Re * Re + Im * Im);
         public Complex Conjugate => new Complex(Re, -Im);
 
@@ -18,7 +18,6 @@ namespace Complex2024
             Re = re;
             Im = im;
         }
-
         public Complex() { }
         public override string ToString()
         {
