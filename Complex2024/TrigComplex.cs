@@ -33,7 +33,7 @@ namespace Complex2024
             {
                  base.Re = value;
                 _r = AbsoluteValue;
-                _phi = Math.Atan2(Im, Re);
+                _phi = Math.Atan2(Im, Re); // В C# функция Atan2 действительно принимает параметры в другом порядке!
             }
         }
         public override double Im
